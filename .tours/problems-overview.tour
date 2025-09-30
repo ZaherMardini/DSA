@@ -1,0 +1,26 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Problems overview",
+  "steps": [
+    {
+      "file": "common_Items.js",
+      "description": "The brute force solution is to compare each items from the first array to each items of the second, its time complexity is O(n*m)\r\nnote that when there are different parameters, nested loop time complexity isn't always O(n^2) it depends on the input size ",
+      "line": 1
+    },
+    {
+      "file": "common_Items.js",
+      "description": "This \"if\" block is to prevent the function from crashing when an empty arrays are inputed, or maybe the user inputs one argument\r\ndidn't wrap the whole function in it to improve readability ",
+      "line": 3
+    },
+    {
+      "file": "common_Items.js",
+      "description": "This block is to improve space complexity, i store the lighter array in the hashmap",
+      "line": 6
+    },
+    {
+      "file": "common_Items.js",
+      "description": "The optimal solution workflow is we store the one input in an object(hashtable), this will be in \"for loop\", then we compare the items of the second input to the items in the object, this solution will improve time complexity from O(n*m) to O(n+m), the space complexity is what we need to store the Object which is the size of the first input O(n)",
+      "line": 11
+    }
+  ]
+}
