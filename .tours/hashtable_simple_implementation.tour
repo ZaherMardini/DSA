@@ -1,0 +1,32 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "hashtable_simple_implementation",
+  "steps": [
+    {
+      "file": "hashtable_implementation.js",
+      "description": "In this simple implementation of the hashtable, we used Array to store data\r\n",
+      "line": 1
+    },
+    {
+      "file": "hashtable_implementation.js",
+      "description": "Once we spot the currect bucket(the array of key-value-pair arrays), we loop over it to search for the currect key, this is because we can't guarrantee that the address only has one array(collisions cases), the \"get\" or \"lookup\" process will be loop => O(n), different from the O(1) in the real hashtable, and this is the main difference between this simple implementation and the real hash table.",
+      "line": 24
+    },
+    {
+      "file": "hashtable_implementation.js",
+      "description": "This should be private methode, but the weird JS doesn't have this so we do the naming convention and hope nobody will use it outside the class",
+      "line": 6
+    },
+    {
+      "file": "hashtable_implementation.js",
+      "description": "This is the simplest hashing function to generate a hash withing the given size",
+      "line": 8
+    },
+    {
+      "file": "hashtable_implementation.js",
+      "description": "The Array of data contains addresses, each address is an array holding Arrays of key-value pairs, all this \r\nnonesense to mimic the actual hashtable",
+      "line": 13
+    }
+  ],
+  "ref": "398d7356952ad8812fb9294a6f224e012e6d5940"
+}
