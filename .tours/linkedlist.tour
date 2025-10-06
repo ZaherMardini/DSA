@@ -5,7 +5,12 @@
     {
       "file": "linked_list.js",
       "description": "Do your workflow (logic) as simple lines of comments if you don't want to write it on a textbook\r\nlike these:\r\n//go to the index\r\n//node.next = before.next\r\n//before.next = node",
-      "line": 48
+      "line": 51
+    },
+    {
+      "file": "linked_list.js",
+      "description": "When inserting new node, make the outside connections first, then procede with prev & nxt",
+      "line": 54
     },
     {
       "file": "linked_list.js",
