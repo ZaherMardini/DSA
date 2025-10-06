@@ -46,7 +46,6 @@ class linkedList{
       return 1;
     }
     let node = new Node(value);
-   
     let prev = this.head;
     let nxt = this.head.next;
     let i = 0;

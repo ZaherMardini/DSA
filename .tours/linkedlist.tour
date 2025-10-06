@@ -7,6 +7,5 @@
       "description": "Do your workflow (logic) as simple lines of comments if you don't want to write it on a textbook\r\nlike these:\r\n//go to the index\r\n//node.next = before.next\r\n//before.next = node",
       "line": 48
     }
-  ],
-  "ref": "5f07bea4c4258ee573afbb01c702486fae776864"
+  ]
 }
