@@ -6,6 +6,16 @@
       "file": "linked_list.js",
       "description": "Do your workflow (logic) as simple lines of comments if you don't want to write it on a textbook\r\nlike these:\r\n//go to the index\r\n//node.next = before.next\r\n//before.next = node",
       "line": 48
+    },
+    {
+      "file": "linked_list.js",
+      "description": "first you need the index of the node",
+      "line": 75
+    },
+    {
+      "file": "linked_list.js",
+      "description": "Go to the index previous of the targeted node, \"_toIndex()\" method places a node on the desired index position and returns the node",
+      "line": 76
     }
   ]
 }

@@ -41,22 +41,43 @@ class linkedList{
       this.prepend(value);
       return 1;
     }
-    if(index > this.length){
+    if(index >= this.length){
       this.append(value);
       return 1;
     }
     let node = new Node(value);
-    let prev = this.head;
-    let nxt = this.head.next;
-    let i = 0;
-    while(i !== index-1){
-      prev = prev.next;
-      nxt = nxt.next;
-      i++;
-    }
+    let prev = this._toIndex(index-1);
+    let nxt = prev.next;
     node.next = nxt;
     prev.next = node;
     this.length++;
+  }
+  _toIndex(index){
+    let i = 0;
+    let current = this.head;
+    while(i !== index){
+      current = current.next;
+      i++;
+    }
+    return current;
+  }
+  _detect(value){
+    let index = 0;
+    let current = this.head;
+    while(current.value !== value){
+      current = current.next;
+      index++;
+    }
+    return index;
+  }
+  delete(value){
+    
+    let index = this._detect(value);
+    let prev = this._toIndex(index-1);
+    let node = prev.next;
+    prev.next = node.next
+    node.next = null;
+    this.length--;
   }
 }
 
@@ -64,6 +85,8 @@ let list = new linkedList(50);
 list.append(60);
 list.append(70);
 list.append(80);
-list.prepend(40);
 list.insert(45,3);
+list.insert(44,5);
 list.show();
+// list.delete(45);
+// list.show();
