@@ -98,14 +98,44 @@ class linkedList{
     node.prev = null;
     this.length--;
   }
+  old_garbage_approach_of_reversing_a_linked_list(){
+    // this used to be an old garbage approach of reversing a linked list
+    // assuming that the list has at least 2 nodes
+    let current = this.tail;
+    let futureHead = this.tail;
+    while(current != this.head){
+      this.append(current.prev.value);
+      current = current.prev;
+      this.length--;
+    }
+    this.head = futureHead;
+    this.head.prev = null;
+  }
+  reverse(){
+    // Don't think of swapping the nodes, we're just resetting the pointers
+    // Positions of the pointers are fixed until you assign them
+    let prv = null;
+    let current = this.head;
+    while(current){
+      let nxt = current.next;
+      current.next = prv;
+      current.prev = nxt;
+      prv = current;
+      current = nxt;
+    }
+    this.tail = this.head;
+    this.head = prv;
+  }
 }
 
-let list = new linkedList(50);
-list.prepend(0);
-list.append(60);
-list.append(70);
-list.append(80);
-list.insert(1,1);
+// ++++++++++++++++ testing ground ++++++++++++++++ \\
+let list = new linkedList(0);
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
 list.show();
-list.delete(1);
+list.reverse();
+list.show();
 list.showReverse();
+// ++++++++++++++++ end testing ground ++++++++++++++++ \\
