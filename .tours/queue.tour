@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "queue",
+  "steps": [
+    {
+      "file": "queue.js",
+      "description": "    Very important to imagin that the (first,last) pointers are pointing to the same node, meaning that any one of the pointers can control the pointers of the node that's why you didn't notice how the first.next was created\r\n",
+      "line": 50
+    }
+  ]
+}
