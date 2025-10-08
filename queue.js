@@ -47,7 +47,7 @@ class Queue{
       this.length = 0;
       return null;
     }
-    this.first = this.first.next;// Very important to imagin that the (first,last) pointers are pointing to the same node, meaning that any one of the pointers can control the pointers of the node thats why you didn't notice how the first.next was created
+    this.first = this.first.next;
     this.length--;
   }
 }
