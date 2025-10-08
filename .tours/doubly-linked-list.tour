@@ -1,0 +1,16 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "doubly linked list",
+  "steps": [
+    {
+      "file": "doubly_linked_list.js",
+      "description": "This used to be an old garbage approach of reversing a linked list\r\nassuming that the list has at least 2 nodes, totally not efficient cause\r\nthe size of the list will doubled until you decide to reset the prev pointer of the head \r\nand rely on the garbage collector to clean the unreached nodes",
+      "line": 101
+    },
+    {
+      "file": "doubly_linked_list.js",
+      "description": "I struggled with this one, i'm not sure if i'm able to remember the approach next time,\r\nso remember this: Don't think of swapping the nodes, we're just resetting the pointers\r\n                  Positions of the pointers are fixed until you reassign them",
+      "line": 113
+    }
+  ]
+}
