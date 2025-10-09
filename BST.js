@@ -5,7 +5,6 @@ class BST{
   isEmpty(){
     return this.root === null;
   }
-
   compare(node,input){
     let guide = node;
     if(input.value >= guide.value){
@@ -51,5 +50,4 @@ tree.insert(7);
 tree.insert(9);
 tree.insert(0);
 // console.log(tree.root);
-;
 //+++++++++++++ end testing ground +++++++++++++\\
