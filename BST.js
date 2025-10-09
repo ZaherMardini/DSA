@@ -25,6 +25,21 @@ class BST{
       }
     }
   }
+  lookup(value, current = this.root){
+    if(current && value === current.value){
+      return current;
+    }
+    if(!current){
+      return null;
+    }
+    if(current && value > current.value){
+      current = current.right;
+    }
+    if(current && value < current.value){
+      current = current.left;
+    }
+    return this.lookup(value,current);
+  }
   insert(value){
     let node = new Node(value);
     if(this.isEmpty()){
@@ -49,5 +64,7 @@ let tree = new BST(5);
 tree.insert(7);
 tree.insert(9);
 tree.insert(0);
+tree.insert(4);
 // console.log(tree.root);
+console.log(tree.lookup(0));
 //+++++++++++++ end testing ground +++++++++++++\\
