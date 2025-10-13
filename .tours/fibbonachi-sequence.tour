@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "fibbonachi sequence",
+  "steps": [
+    {
+      "file": "fibbonachi.js",
+      "description": "In base cases we don't get to this line, the function will return directly like normal\r\nremember, base case call => no recursion",
+      "line": 8
+    },
+    {
+      "file": "fibbonachi.js",
+      "description": "We handle the first two iterations with this condition, we must make sure that the we have the base cases present in the result before continuing because we will need them",
+      "line": 18
+    },
+    {
+      "file": "fibbonachi.js",
+      "description": "The index will indicate how many times should we execute the code",
+      "line": 17
+    }
+  ]
+}
