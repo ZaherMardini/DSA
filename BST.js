@@ -25,20 +25,20 @@ class BST{
       }
     }
   }
-  lookup(value, current = this.root, before = null){
-    if(current && value === current.value){
-      return current;
+  lookup(value){
+    let current = this.root;
+    while(!(current && value === current.value)){
+      if(!current){
+        return null;
+      }
+      if(current && value > current.value){
+        current = current.right;
+      }
+      if(current && value < current.value){
+        current = current.left;
+      }
     }
-    if(!current){
-      return null;
-    }
-    if(current && value > current.value){
-      current = current.right;
-    }
-    if(current && value < current.value){
-      current = current.left;
-    }
-    return this.lookup(value,current);
+    return current;
   }
   insert(value){
     let node = new Node(value);
@@ -51,48 +51,37 @@ class BST{
   isLeaf(node){
     return !node.right && !node.left;
   }
-  //   lookupForRemove(value, prev = null, current = this.root){
-  //   if(current && value === current.value){
-  //     return [prev,current];
-  //   }
-  //   if(!current){
-  //     return [null,null];
-  //   }
-  //   if(current && value > current.value){
-  //     prev = current;
-  //     current = current.right;
-  //   }
-  //   if(current && value < current.value){
-  //     prev = current;
-  //     current = current.left;
-  //   }
-  //   return this.lookupForRemove(value,prev,current);
-  // }
-    lookupForRemove(value, prev = null, current = this.root){
-    if(current && value === current.value){
-      return [prev,current];
+  lookupForRemove(value){
+    let prev = null;
+    let current = this.root;
+    while(!(current && value === current.value)){
+      if(!current){
+        return [prev,null];
+      }
+      if(current && value > current.value){
+        prev = current;
+        current = current.right;
+      }
+      if(current && value < current.value){
+        prev = current;
+        current = current.left;
+      }
     }
-    if(!current){
-      return [null,null];
-    }
-    if(current && value > current.value){
-      prev = current;
-      current = current.right;
-    }
-    if(current && value < current.value){
-      prev = current;
-      current = current.left;
-    }
-    return this.lookupForRemove(value,prev,current);
+    return [prev,current];
   }
   remove(value){
-    let result = this.lookupForRemove(value); //return [prev,current]
-    let [prev,node] = result;
-    if(!prev){
-      return this.removeRoot();
+    let nRoot = null;
+    if(value === this.root.value){
+      nRoot = this.findSuccessor();
+      value = nRoot.value;
     }
+    let result = this.lookupForRemove(value);
+    let [prev,node] = result;
     if(!node){
       return false;
+    }
+    if(nRoot){
+      this.root.value = nRoot.value;
     }
     if(this.isLeaf(node)){
       return this.removeLeaf(prev,node);
@@ -106,7 +95,7 @@ class BST{
     prev.right === node ? prev.right = null : prev.left = null;
     return true;
   }
-  removeSubTree(direction = false,prev,node){ // left = 0, right = 1
+  removeSubTree(direction = false,prev,node){
     if(node === this.root){
       return this.removeRoot();
     }
@@ -138,16 +127,7 @@ class BST{
       return true;
     }
   }
-  removeRoot(){
-    let nRoot = this.findPredecessor();
-    if(nRoot === this.root){
-      this.root = null;
-    }
-    this.remove(nRoot);
-    this.root.value = nRoot;
-    return true;
-  }
-  findPredecessor(node = this.root.right ?? null){
+  findSuccessor(node = this.root.right ?? null){
     if(!node){
       this.root = this.root.left;
       return this.root;
@@ -155,7 +135,7 @@ class BST{
     if(!node.left){
       return node;
     }
-    return this.findPredecessor(node.left);
+    return this.findSuccessor(node.left);
   }
 }
 
@@ -168,8 +148,6 @@ class Node{
 }
 
 //+++++++++++++ testing ground +++++++++++++\\
-// In JS only objects can be passed by reference to functions
-// In JS There is no method overloading
 let tree = new BST(5);
 tree.insert(7);
 tree.insert(9);
@@ -187,9 +165,11 @@ tree.insert(4.5);
 tree.insert(6.5);
 tree.insert(11);
 
-console.log(tree.remove(5));
+// console.log(tree.remove(6.5));
+// console.log(tree.remove(5));
+// console.log(tree.root);
+
 // console.log(tree.findPredecessor());
-// console.log(tree.lookup(7));
-console.log(tree.root);
+// console.log(tree.lookupForRemove(4));
 
 //+++++++++++++ end testing ground +++++++++++++\\

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "BST",
+  "steps": [
+    {
+      "file": "BST.js",
+      "description": "I replaced the recursion implementation with the iterative one to reduce the call stack calls\r\nand also i had to duplicate the implementation for the remove method becasue JS doesn't have overloading\r\n\r\n\r\n  // lookupForRemove(value, prev = null, current = this.root){ // It works but it costs stackoverflow\r\n  //   if(current && value === current.value){\r\n  //     return [prev,current];\r\n  //   }\r\n  //   if(!current){\r\n  //     return [null,null];\r\n  //   }\r\n  //   if(current && value > current.value){\r\n  //     prev = current;\r\n  //     current = current.right;\r\n  //   }\r\n  //   if(current && value < current.value){\r\n  //     prev = current;\r\n  //     current = current.left;\r\n  //   }\r\n  //   return this.lookupForRemove(value,prev,current);\r\n  // }\r\n",
+      "line": 28
+    },
+    {
+      "file": "BST.js",
+      "description": "In BSTs when removing the root node, we look for the successor which is the node with the least value in the right subtree(line 75), nRoot => new root value(successor node we found)",
+      "line": 73
+    },
+    {
+      "file": "BST.js",
+      "description": "Remove root logic: look for the successor node, change the \"node-to-delete\" value to the successor node value\r\nand continue with the delete logic, after the successor node is deleted we replace the \"old root\" value with its value, no need to mess with pointers",
+      "line": 74
+    },
+    {
+      "file": "BST.js",
+      "description": "Left = false, right = true",
+      "line": 98
+    },
+    {
+      "file": "BST.js",
+      "description": "In JS:\r\n-Only objects can be passed by reference to functions, prematives don't\r\n-There is no method overloading",
+      "line": 151
+    }
+  ]
+}
