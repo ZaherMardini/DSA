@@ -137,6 +137,50 @@ class BST{
     }
     return this.findSuccessor(node.left);
   }
+  BFSR(queue = [this.root], result = [this.root.value]){
+    let current = queue.shift();
+    if(!current){
+      return result;
+    }
+    if(current.left){
+      queue.push(current.left);
+      result.push(current.left.value);
+    }
+    if(current.right){
+      queue.push(current.right);
+      result.push(current.right.value);
+    }
+    return this.BFSR(queue, result);
+  }
+  BFS(){
+    let queue = [this.root];
+    let result = [this.root.value];
+    while(queue.length){
+      let current = queue.shift();
+      if(!current){
+        return result;
+      }
+      if(current.left){
+        queue.push(current.left);
+        result.push(current.left.value);
+      }
+      if(current.right){
+        queue.push(current.right);
+        result.push(current.right.value);
+      }
+    }
+    return result;
+  }
+  DFS_inOrder(current = this.root, result = []){
+    if(current.left){
+      this.DFS_inOrder(current.left,result);
+    }
+    result.push(current.value);
+    if(current.right){
+      this.DFS_inOrder(current.right,result);
+    }
+    return result;
+  }
 }
 
 class Node{
@@ -148,6 +192,13 @@ class Node{
 }
 
 //+++++++++++++ testing ground +++++++++++++\\
+// let tree = new BST(9);
+// tree.insert(4);
+// tree.insert(20);
+// tree.insert(1);
+// tree.insert(6);
+// tree.insert(15);
+// tree.insert(170);
 let tree = new BST(5);
 tree.insert(7);
 tree.insert(9);
@@ -167,7 +218,7 @@ tree.insert(11);
 
 // console.log(tree.remove(6.5));
 // console.log(tree.remove(5));
-// console.log(tree.root);
+console.log(tree.DFS_inOrder());
 
 // console.log(tree.findPredecessor());
 // console.log(tree.lookupForRemove(4));
